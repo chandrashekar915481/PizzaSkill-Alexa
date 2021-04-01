@@ -1,0 +1,332 @@
+{
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "pizza house",
+            "intents": [
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "i need help",
+                        "help"
+                    ]
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "PizzaOrderIntent",
+                    "slots": [
+                        {
+                            "name": "topping",
+                            "type": "AMAZON.Food",
+                            "samples": [
+                                "i like to have {topping}",
+                                "i want {topping}",
+                                "i would go for {topping}",
+                                "{topping}"
+                            ]
+                        },
+                        {
+                            "name": "crust",
+                            "type": "crust_type",
+                            "samples": [
+                                "{crust}"
+                            ]
+                        },
+                        {
+                            "name": "size",
+                            "type": "size",
+                            "samples": [
+                                "{size}"
+                            ]
+                        },
+                        {
+                            "name": "softdrink",
+                            "type": "softdrink",
+                            "samples": [
+                                "{softdrink}"
+                            ]
+                        }
+                    ],
+                    "samples": [
+                        "order a {size} {crust} with {topping} pizza along with {softdrink}",
+                        "order a {size} {crust} with {topping} pizza ",
+                        "i would like to have {size} {crust} with {topping}",
+                        "order a {size} pizza with {topping}",
+                        "order a {crust} pizza with {topping}",
+                        "order a {crust} pizza",
+                        "order a {topping} pizza with {crust}",
+                        "pizza",
+                        "order a {topping} pizza",
+                        "i'm hungry book a pizza",
+                        "book a pizza",
+                        "order a pizza"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "crust_type",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "stuffed"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "thick",
+                                "synonyms": [
+                                    "regular"
+                                ]
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "thin"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "size",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "large"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "medium"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "small"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "softdrink",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "diet coke"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "coca-cola"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "pepsi"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "dialog": {
+            "intents": [
+                {
+                    "name": "PizzaOrderIntent",
+                    "delegationStrategy": "ALWAYS",
+                    "confirmationRequired": false,
+                    "prompts": {},
+                    "slots": [
+                        {
+                            "name": "topping",
+                            "type": "AMAZON.Food",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1217515477378.418613764134"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.1217515477378.418613764134.960556217461",
+                                    "values": [
+                                        "Sausage",
+                                        "chicken",
+                                        "GreenPepper",
+                                        "mushroom",
+                                        "Pepperoni",
+                                        "cheese"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "crust",
+                            "type": "crust_type",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1217515477378.1000645051622"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.1217515477378.1000645051622.1413081901634",
+                                    "values": [
+                                        "stuffed",
+                                        "thick",
+                                        "regular",
+                                        "thin"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "size",
+                            "type": "size",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.1217515477378.1190272793997"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.1217515477378.1190272793997.1184672253547",
+                                    "values": [
+                                        "small",
+                                        "large",
+                                        "medium"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "name": "softdrink",
+                            "type": "softdrink",
+                            "confirmationRequired": false,
+                            "elicitationRequired": true,
+                            "prompts": {
+                                "elicitation": "Elicit.Slot.159631766697.845435674900"
+                            },
+                            "validations": [
+                                {
+                                    "type": "isInSet",
+                                    "prompt": "Slot.Validation.159631766697.845435674900.829539076737",
+                                    "values": [
+                                        "coca-cola",
+                                        "pepsi",
+                                        "diet coke"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ],
+            "delegationStrategy": "ALWAYS"
+        },
+        "prompts": [
+            {
+                "id": "Elicit.Slot.1217515477378.418613764134",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "we would serve Pepperoni,Mushroom,Sausage,cheese ,chicken,green pepper.  what topping do you want  "
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1217515477378.418613764134.960556217461",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "we would serve Pepperoni,Mushroom,Sausage,pepperoni"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1217515477378.1000645051622",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "we offer thin , thick , stuffed .  what kind of crust do you want?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1217515477378.1000645051622.1413081901634",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "we offer thin , thick , stuffed . which would you like?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1217515477378.1190272793997",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": " we offer small , medium , large . what size of pizza?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1217515477378.1190272793997.1184672253547",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": " we offer small , medium , large . what would you like?"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.1217515477378.1085266516999",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "would you like to have softdrink?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.1217515477378.1085266516999.1339741299887",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "we would serve pepsi,coca-cola,diet coke"
+                    }
+                ]
+            },
+            {
+                "id": "Elicit.Slot.159631766697.845435674900",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "would you like to have softdrink?"
+                    }
+                ]
+            },
+            {
+                "id": "Slot.Validation.159631766697.845435674900.829539076737",
+                "variations": [
+                    {
+                        "type": "PlainText",
+                        "value": "we would serve pepsi,diet coke,coca-cola"
+                    }
+                ]
+            }
+        ]
+    }
+}
